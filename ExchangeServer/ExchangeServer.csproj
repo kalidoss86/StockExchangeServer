@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F4651F6F-AEC1-440C-BAFF-649F8F67C943}</ProjectGuid>
+    <ProjectGuid>{3AEE6D66-4D8E-4AE5-91DA-5AEA6E753A56}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>StockExchange</RootNamespace>
-    <AssemblyName>StockExchange</AssemblyName>
+    <RootNamespace>ExchangeServer</RootNamespace>
+    <AssemblyName>ExchangeServer</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -32,8 +32,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MathNet.Numerics, Version=3.20.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MathNet.Numerics.3.20.0\lib\net40\MathNet.Numerics.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -51,14 +55,15 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\Client.cs" />
     <Compile Include="Model\Enums.cs" />
-    <Compile Include="Model\EventFeed.cs" />
-    <Compile Include="Model\ExtensionClass.cs" />
+    <Compile Include="Model\Exchange.cs" />
     <Compile Include="Model\Order.cs" />
     <Compile Include="Model\OrderBook.cs" />
+    <Compile Include="Model\OrderBookStats.cs" />
     <Compile Include="Model\OrderList.cs" />
+    <Compile Include="Model\Position.cs" />
     <Compile Include="Model\Security.cs" />
-    <Compile Include="Model\Structs.cs" />
     <Compile Include="Model\Trade.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -74,6 +79,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
